@@ -35,6 +35,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Frame Animation" id="Cnz-Cq-tXp"/>
+                    <connections>
+                        <outlet property="fireAnimButton" destination="hNJ-bj-rCm" id="obC-Dc-BC7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utw-NI-vpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

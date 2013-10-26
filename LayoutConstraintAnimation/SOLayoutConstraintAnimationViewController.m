@@ -11,16 +11,33 @@
 @interface SOLayoutConstraintAnimationViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *fireAnimButton;
 @property (strong, nonatomic) NSArray *verticalImgConstraints;
+@property (strong, nonatomic) NSString *animText;
+@property (strong, nonatomic) NSString *resetText;
+@property (assign) int imgViewTag;
 @end
 
 @implementation SOLayoutConstraintAnimationViewController
 
 @synthesize fireAnimButton = fireAnimButton;
 @synthesize verticalImgConstraints = verticalImgConstraints;
-
-int imgViewTag = 552;
+@synthesize imgViewTag = imgViewTag;
+@synthesize animText = animText;
+@synthesize resetText = resetText;
 
 - (IBAction)fireAnimation:(id)sender {
+    NSString *titleText = self.fireAnimButton.titleLabel.text;
+    if([titleText isEqualToString:animText])
+    {
+        [self animate];
+    } else
+    {
+        [self reset];
+    }
+}
+
+- (void)animate
+{
+    self.fireAnimButton.userInteractionEnabled = NO;
     // Make sure we remove the constraints we're going to alter in the animation first
     [self.view removeConstraints:verticalImgConstraints];
     // Get the image view
@@ -39,8 +56,25 @@ int imgViewTag = 552;
         // All we have to do now is call layoutIfNeeded
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
-        //
+        self.fireAnimButton.titleLabel.text = resetText;
+        self.fireAnimButton.userInteractionEnabled = YES;
     }];
+}
+
+- (void)reset
+{
+    [self.view removeConstraints:verticalImgConstraints];
+    UIImageView *imgView = (UIImageView *) [self.view viewWithTag:imgViewTag];
+    // Setup our vews and metrics - I'm not using the metrics just yet but
+    // I will later on so just leave it here.
+    NSDictionary *views = NSDictionaryOfVariableBindings(imgView, fireAnimButton);
+    
+    // Vertical Constraint - pin it right above the fire animation button
+    verticalImgConstraints = [NSLayoutConstraint
+                              constraintsWithVisualFormat:@"V:[imgView]-[fireAnimButton]"
+                              options:0 metrics:nil views:views];
+    [self.view addConstraints:verticalImgConstraints];
+    [self.view layoutIfNeeded];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +89,11 @@ int imgViewTag = 552;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    imgViewTag = 552;
+    animText = @"Fire Animation";
+    resetText = @"Reset";
+    
 	// Do any additional setup after loading the view.
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"doseq"]];
     imgView.tag = imgViewTag;

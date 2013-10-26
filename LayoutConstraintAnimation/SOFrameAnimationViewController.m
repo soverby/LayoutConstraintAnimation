@@ -9,22 +9,50 @@
 #import "SOFrameAnimationViewController.h"
 
 @interface SOFrameAnimationViewController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *fireAnimButton;
+@property (strong, nonatomic) NSString *animText;
+@property (strong, nonatomic) NSString *resetText;
+@property (assign) int imgViewTag;
 @end
 
 @implementation SOFrameAnimationViewController
 
-int imgTag = 557;
+@synthesize imgViewTag = imgViewTag;
+@synthesize animText = animText;
+@synthesize resetText = resetText;
 
 - (IBAction)fireAnimation:(id)sender {
-    UIImageView *imgView = (UIImageView *)[self.view viewWithTag:imgTag];
+    NSString *titleText = self.fireAnimButton.titleLabel.text;
+    if([titleText isEqualToString:animText])
+    {
+        [self animate];
+    } else
+    {
+        [self reset];
+    }
+}
+
+- (void)animate
+{
+    self.fireAnimButton.userInteractionEnabled = NO;
+    UIImageView *imgView = (UIImageView *)[self.view viewWithTag:imgViewTag];
     UIImage *img = imgView.image;
     CGRect newFrame = CGRectMake(self.view.frame.size.width / 2 - img.size.width / 2, 44, img.size.width, img.size.height);
     [UIView animateWithDuration:1.0 animations:^{
         imgView.frame = newFrame;
     } completion:^(BOOL finished) {
-        //
+        self.fireAnimButton.titleLabel.text = resetText;
+        self.fireAnimButton.userInteractionEnabled = YES;
     }];
+}
+
+- (void)reset
+{
+    UIImageView *imgView = (UIImageView *)[self.view viewWithTag:imgViewTag];
+    UIImage *img = imgView.image;
+    imgView.frame = CGRectMake(self.view.frame.size.width / 2 - img.size.width / 2, self.view.frame.size.height - 220, img.size.width, img.size.height);
+    self.fireAnimButton.titleLabel.text = animText;
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,12 +68,15 @@ int imgTag = 557;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    imgViewTag = 552;
+    animText = @"Fire Animation";
+    resetText = @"Reset";
+    
     UIImage *img = [UIImage imageNamed:@"doseq"];
 
     UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
-    imgView.tag = imgTag;
+    imgView.tag = imgViewTag;
     imgView.frame = CGRectMake(self.view.frame.size.width / 2 - img.size.width / 2, self.view.frame.size.height - 220, img.size.width, img.size.height);
-    NSLog(@" imgView.frame: x: %f, y: %f, h: %f, w: %f", imgView.frame.origin.x, imgView.frame.origin.y, imgView.frame.size.height, imgView.frame.size.width);
     [self.view addSubview:imgView];
 }
 
