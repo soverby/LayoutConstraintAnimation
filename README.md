@@ -7,8 +7,7 @@ This is an example showing two things: Why layout constraints are so effective a
 between frame animation and layout animation.
 
 To see what happens, run the app (in portrait mode, which should be the default), on the 'frame animation' tab you 
-won't see an image, click the 'fire animation' button. You'll see that the image animates to the top of the view
-centered.
+click the 'fire animation' button. You'll see that the image animates to the top of the view centered.
 
 Click the 'reset' button. 
 
