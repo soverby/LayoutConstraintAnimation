@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="l3V-SF-Bur">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--Frame Animation View Controller - Frame Animation-->
+        <scene sceneID="7kQ-wI-9Dn">
+            <objects>
+                <viewController id="5Xd-4T-LfC" customClass="SOFrameAnimationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="74Z-Ig-4QF"/>
+                        <viewControllerLayoutGuide type="bottom" id="yV7-6D-yM1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eIy-p0-rfq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNJ-bj-rCm">
+                                <rect key="frame" x="33" y="464" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Fire Animation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fireAnimation:" destination="7DU-6S-qQp" eventType="touchUpInside" id="5xU-5y-6Yb"/>
+                                    <action selector="fireAnimation:" destination="5Xd-4T-LfC" eventType="touchUpInside" id="qed-bG-jeP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hNJ-bj-rCm" firstAttribute="leading" secondItem="eIy-p0-rfq" secondAttribute="leading" constant="33" id="0lz-BB-DvF"/>
+                            <constraint firstAttribute="bottom" secondItem="hNJ-bj-rCm" secondAttribute="bottom" constant="74" id="KZQ-cn-8hp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Frame Animation" id="Cnz-Cq-tXp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Utw-NI-vpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="458"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RzJ-5P-8pB">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="l3V-SF-Bur" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="UfW-lZ-bVh">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="5Xd-4T-LfC" kind="relationship" relationship="viewControllers" id="24e-DJ-bQr"/>
+                        <segue destination="7DU-6S-qQp" kind="relationship" relationship="viewControllers" id="Sou-eF-sTV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plo-0c-Rg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-770" y="786"/>
+        </scene>
+        <!--Layout Constraint Animation View Controller - Layout Constraint Animation-->
+        <scene sceneID="TbO-o7-eM1">
+            <objects>
+                <viewController id="7DU-6S-qQp" customClass="SOLayoutConstraintAnimationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0e6-Jm-uPD"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fV-gA-2xM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vk7-Jm-qUv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTQ-cs-aJy">
+                                <rect key="frame" x="33" y="464" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Fire Animation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fireAnimation:" destination="7DU-6S-qQp" eventType="touchUpInside" id="YY6-3u-YN8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oTQ-cs-aJy" secondAttribute="bottom" constant="74" id="JN2-J6-Jl1"/>
+                            <constraint firstItem="oTQ-cs-aJy" firstAttribute="leading" secondItem="vk7-Jm-qUv" secondAttribute="leading" constant="33" id="UkA-a1-AVG"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Layout Constraint Animation" id="Etj-PU-eqA"/>
+                    <connections>
+                        <outlet property="fireAnimButton" destination="oTQ-cs-aJy" id="9OM-Hi-ZSu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2C-vQ-LH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="1110"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F9385D8D-821E-432D-9293-21682B37DA89</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LayoutConstraintAnimation</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>22F92721-CF04-4604-A503-2D4F67D13084</key>
+		<string>http://10.212.106.168/seanoverby/afnetworking2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/LayoutConstraintAnimation/LayoutConstraintAnimation.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>22F92721-CF04-4604-A503-2D4F67D13084</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://10.212.106.168/seanoverby/afnetworking2.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>22F92721-CF04-4604-A503-2D4F67D13084</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>22F92721-CF04-4604-A503-2D4F67D13084</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LayoutConstraintAnimation</string>
+		</dict>
+	</array>
+</dict>
+</plist>
