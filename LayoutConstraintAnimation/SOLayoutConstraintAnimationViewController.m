@@ -21,16 +21,22 @@
 int imgViewTag = 552;
 
 - (IBAction)fireAnimation:(id)sender {
+    // Make sure we remove the constraints we're going to alter in the animation first
     [self.view removeConstraints:verticalImgConstraints];
+    // Get the image view
     UIImageView *imgView = (UIImageView *) [self.view viewWithTag:imgViewTag];
+    // Setup our vews and metrics - I'm not using the metrics just yet but
+    // I will later on so just leave it here.
     NSDictionary *views = NSDictionaryOfVariableBindings(imgView, fireAnimButton);
     NSDictionary *metrics = @{@"bottomPadding":@10.0};
-    
+    // Animate from where it was to the top of its superview with standard padding
     verticalImgConstraints = [NSLayoutConstraint
                               constraintsWithVisualFormat:@"V:|-[imgView]"
                               options:0 metrics:metrics views:views];
     [self.view addConstraints:verticalImgConstraints];
+    
     [UIView animateWithDuration:1.0 animations:^{
+        // All we have to do now is call layoutIfNeeded
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         //

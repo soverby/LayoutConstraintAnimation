@@ -13,7 +13,18 @@
 @end
 
 @implementation SOFrameAnimationViewController
+
+int imgTag = 557;
+
 - (IBAction)fireAnimation:(id)sender {
+    UIImageView *imgView = (UIImageView *)[self.view viewWithTag:imgTag];
+    UIImage *img = imgView.image;
+    CGRect newFrame = CGRectMake(self.view.frame.size.width / 2 - img.size.width / 2, 44, img.size.width, img.size.height);
+    [UIView animateWithDuration:1.0 animations:^{
+        imgView.frame = newFrame;
+    } completion:^(BOOL finished) {
+        //
+    }];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,6 +40,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIImage *img = [UIImage imageNamed:@"doseq"];
+
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
+    imgView.tag = imgTag;
+    imgView.frame = CGRectMake(self.view.frame.size.width / 2 - img.size.width / 2, self.view.frame.size.height - 220, img.size.width, img.size.height);
+    NSLog(@" imgView.frame: x: %f, y: %f, h: %f, w: %f", imgView.frame.origin.x, imgView.frame.origin.y, imgView.frame.size.height, imgView.frame.size.width);
+    [self.view addSubview:imgView];
 }
 
 - (void)didReceiveMemoryWarning
